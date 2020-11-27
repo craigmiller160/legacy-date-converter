@@ -22,6 +22,8 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.ZonedDateTime
 import java.util.Date
 
 class LegacyDateConverterTest {
@@ -46,12 +48,18 @@ class LegacyDateConverterTest {
 
     @Test
     fun test_convertZonedDateTimeToDate() {
-        TODO("Finish this")
+        val zdt = ZonedDateTime.of(LocalDateTime.of(2019, 1, 1, 1, 1), ZoneId.systemDefault())
+        val expected = Date(119, 0, 1, 1, 1)
+        val actual = legacyDateConverter.convertZonedDateTimeToDate(zdt)
+        assertEquals(expected, actual)
     }
 
     @Test
     fun test_convertDateToZonedDateTime() {
-        TODO("Finish this")
+        val date = Date(119, 0, 1, 1, 1)
+        val expected = ZonedDateTime.of(LocalDateTime.of(2019, 1, 1, 1, 1), ZoneId.systemDefault())
+        val actual = legacyDateConverter.convertDateToZonedDateTime(date, ZoneId.systemDefault())
+        assertEquals(expected, actual)
     }
 
 }
