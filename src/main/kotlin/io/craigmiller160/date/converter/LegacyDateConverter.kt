@@ -25,8 +25,8 @@ import java.util.Date
 
 class LegacyDateConverter {
 
-    fun convertLocalDateTimeToDate(localDateTime: LocalDateTime): Date {
-        return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant())
+    fun convertLocalDateTimeToDate(localDateTime: LocalDateTime, zoneId: ZoneId = ZoneId.systemDefault()): Date {
+        return Date.from(localDateTime.atZone(zoneId).toInstant())
     }
 
     fun convertDateToLocalDateTime(date: Date): LocalDateTime {
