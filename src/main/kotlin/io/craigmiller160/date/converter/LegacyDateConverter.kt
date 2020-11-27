@@ -20,6 +20,7 @@ package io.craigmiller160.date.converter
 
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.time.ZonedDateTime
 import java.util.Date
 
 class LegacyDateConverter {
@@ -30,6 +31,14 @@ class LegacyDateConverter {
 
     fun convertDateToLocalDateTime(date: Date): LocalDateTime {
         return LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault())
+    }
+
+    fun convertZonedDateTimeToDate(zonedDateTime: ZonedDateTime): Date {
+        return Date.from(zonedDateTime.toInstant());
+    }
+
+    fun convertDateToZonedDateTime(date: Date, zoneId: ZoneId): ZonedDateTime {
+        return ZonedDateTime.ofInstant(date.toInstant(), zoneId)
     }
 
 }

@@ -44,4 +44,14 @@ class LegacyDateConverterTest {
         assertEquals(expected, localDateTime)
     }
 
+    @Test
+    fun test_convertZonedDateTimeToDate() {
+        TODO("Finish this")
+    }
+
+    @Test
+    fun test_convertDateToZonedDateTime() {
+        TODO("Finish this")
+    }
+
 }
